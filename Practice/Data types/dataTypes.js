@@ -44,6 +44,8 @@ console.log({})
 console.log([])
 console.log(function(){})
 
+typeof([])
+
 // typeof - позволяет определить тип значения
 // Возвращает строку, содержащую тип.
 
