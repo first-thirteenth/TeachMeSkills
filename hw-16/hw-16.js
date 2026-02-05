@@ -3,15 +3,19 @@
 //Задача 1.
 let myName = 'Andrei'
 let student = myName
-
 console.log(myName)
 console.log(student)
 
 //Задача 2.
-let typeText = 'Hello'
-let typeCounter = 100500
-let typeIsOpen = true
-let typeSomeValue = null
+let text = "Hello"
+let counter = 100500
+let isOpen = true
+let someValue = null
+
+let typeText = typeof text
+let typeCounter = typeof counter
+let typeIsOpen = typeof isOpen
+let typeSomeValue = typeof someValue
 
 console.log(typeText)
 console.log(typeCounter)
@@ -35,8 +39,8 @@ Boolean(undefined) // false
 Number(undefined) // NaN
 
 //Задача 4.
-myName = prompt('Введите ваше имя')
-let myLastName = prompt('Введите вашу фамилию')
+let firstName = prompt('Введите ваше имя')
+let secondName = prompt('Введите вашу фамилию')
 alert(myName + ' ' + myLastName)
 
 //Задача 5.
@@ -53,7 +57,8 @@ alert(sumSalary)
 let x = 20
 let y = 58
 let z = 42
-console.log(x + y + z)
+let sum = x + y + z
+console.log(sum)
 
 //Задача 2.
 let secondsInMinute = 60
@@ -87,17 +92,17 @@ let lengthWords = variable1.length + variable2.length + variable3.length + varia
 console.log(lengthWords)
 
 //Задача 6.
-let string = String(`Variable: %variable name% have type: %type variable%`)
-let number = Number(`Variable: %variable name% have type: %type variable%`)
-let boolean = Boolean(`Variable: %variable name% have type: %type variable%`)
-console.log(string)
-console.log(number)
-console.log(boolean)
+let str = 'six'
+let num = 13
+let bool = false
+console.log(`Variable: str have type: ${typeof str}`)
+console.log(`Variable: num have type: ${typeof num}`)
+console.log(`Variable: bool have type: ${typeof bool}`)
 
 //Задача 7.
 nameUser = prompt('Введите ваше имя')
 ageUser = prompt('Введите ваш возраст')
-console.log(nameUser + ' ' + ageUser)
+console.log(`${nameUser} ${ageUser}`)
 
 //Продвинутый уровень
 //Задача 1.
