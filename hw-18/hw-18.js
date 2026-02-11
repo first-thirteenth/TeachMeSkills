@@ -3,16 +3,16 @@
 function getSum (n) {
     let sum = 0
     for (i = 1; i <= n; i++) {
-        sum = sum + n
+        sum += i
     }
     return(sum) 
 }
 
-console.log(getSum(3))
+console.log(getSum(5))
+
+//Задача 2
 
 
 
-
-
-
+//Задача 3
 
