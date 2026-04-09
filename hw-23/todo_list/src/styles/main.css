@@ -1,4 +1,4 @@
-/*RESET*/
+/*Reset*/
 * {
     margin: 0; 
     padding: 0;
@@ -7,13 +7,13 @@
     box-sizing: border-box; 
 }
 
-/*COLOR*/
+/*Color*/
 :root {
     --main-background-color: rgb(0, 0, 0);
     --btn-background-color: rgb(255, 255, 255);
-    --hover-btn-background-color: rgb(204, 7, 7);
 }
 
+/*Todo*/
 body {
     display: flex;
     justify-content: center;
@@ -46,10 +46,12 @@ body {
     height: 35px;
     border-radius: 10px;
     background-color: var(--btn-background-color);
+    cursor: pointer;
 }
 
 .control-panel__btn-dell:active,
-.control-panel__btn-ad:active {
+.control-panel__btn-ad:active,
+.card__btn-dell:active {
     background-color: var(--main-background-color);
     border: 1px solid white;
     color: white;
@@ -61,10 +63,51 @@ body {
 }
 
 .card {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    height: 120px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px 0;
+    min-height: 120px;
     width: 75%;
     border: 1px solid white;
     border-radius: 10px;
 }
+.card__checkbox,
+.card__input,
+.card__btn-dell,
+.card__time {
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.card__checkbox {
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+    accent-color: rgb(255, 255, 255);
+}
+
+.card__input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 35px;
+}
+ 
+.card__btn-dell {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.card__time {
+    margin-top: auto;
+}
+
+
+
+
