@@ -42,7 +42,7 @@ if (root) {
   container.appendChild(card);
 
   const cardCheckbox = createElement('input', 'card__checkbox');
-  cardCheckbox.type = 'checkbox'
+  cardCheckbox.type = 'checkbox';
   card.appendChild(cardCheckbox);
   
   const cardInput = createElement('p', 'card__input', 'Todo text');
