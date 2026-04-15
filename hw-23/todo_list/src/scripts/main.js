@@ -62,63 +62,61 @@ if (root) {
 
   const btnAdd = createElement('button', 'control-panel__btn-ad', 'Add');
   controlPanel.appendChild(btnAdd);
-
-
-  // //Card.
-  
-  // const card = createElement('div', 'card');
-  // todoList.appendChild(card);
-
-  // const cardCheckbox = createElement('input', 'card__checkbox');
-  // cardCheckbox.type = 'checkbox';
-  // card.appendChild(cardCheckbox);
-  
-  // const cardInput = createElement('p', 'card__input', 'Todo text');
-  // card.appendChild(cardInput);
-
-  // const cardButtonDell = createElement('button', 'card__btn-dell', 'Delete');
-  // card.appendChild(cardButtonDell);
-
-  // const now = new Date();
-  // const cardTime = createElement('time', 'card__time');
-  // cardTime.dateTime = now.toISOString(); 
-  // cardTime.textContent = now.toLocaleString('ru-RU', {
-  // day: '2-digit',
-  // month: '2-digit',
-  // year: 'numeric'
-  // });
-  // card.appendChild(cardTime);
 }
 
 //Event handler todo-list
 //Remove all cards
 const todoList = document.querySelector('.todo-list');
+const inputTodoText = document.querySelector('.control-panel__input');
+
+if (todoList && inputTodoText) {
+  todoList.addEventListener('change', (event) => {
+    const cardCheckbox = event.target.closest('.card__checkbox');
+
+    if (cardCheckbox) {
+      const card = cardCheckbox.closest('.card');
+
+      if (card) {
+        card.classList.toggle('card--completed', cardCheckbox.checked);
+      }
+    }
+  });
+
 todoList.addEventListener('click', (event) => {
   const btnDellAll = event.target.closest('.control-panel__btn-dell');
-  if(btnDellAll) {
+    if (btnDellAll) {
     const cards = todoList.querySelectorAll('.card');
     cards.forEach((card) => card.remove());
-    return
+      return;
   }
 
   //Add a card
   const btnAdd = event.target.closest('.control-panel__btn-ad');
-  if(btnAdd) {
-    const card = btnAdd.closest('.card');
-    if(card) {
-      card.prepend();
-    }
+    if (btnAdd) {
+      const todoText = inputTodoText.value.trim();
+
+      if (!todoText) {
+        inputTodoText.focus();
+        return;
+      }
+
+      const card = createTodoCard(todoText);
+      todoList.appendChild(card);
+      inputTodoText.value = '';
+      inputTodoText.focus();
+      return;
   }
 
   //Delete card
   const cardButtonDell = event.target.closest('.card__btn-dell');
-  if(cardButtonDell) {
+    if (cardButtonDell) {
     const card = cardButtonDell.closest('.card');
-    if(card) {
+      if (card) {
       card.remove();
     }
   }
-})
+  });
+}
  
 
 
