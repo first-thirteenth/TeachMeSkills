@@ -18,12 +18,12 @@ function createElement(tagName, className = '', text = '', id = '') {
 const root = document.getElementById('root');
 
 if (root) {
-  const container = createElement('div', 'container');
-  root.appendChild(container);
+  const todoList = createElement('div', 'todo-list');
+  root.appendChild(todoList);
 
   //Control panel.
   const controlPanel = createElement('div', 'control-panel');
-  container.appendChild(controlPanel);
+  todoList.appendChild(controlPanel);
 
   const btnDellAll = createElement('button', 'control-panel__btn-dell', 'Delete All' );
   controlPanel.appendChild(btnDellAll);
@@ -39,7 +39,7 @@ if (root) {
 
   //Card.
   const card = createElement('div', 'card');
-  container.appendChild(card);
+  todoList.appendChild(card);
 
   const cardCheckbox = createElement('input', 'card__checkbox');
   cardCheckbox.type = 'checkbox';
@@ -62,6 +62,36 @@ if (root) {
   card.appendChild(cardTime);
 }
 
+//Event handler todo-list
+//Remove all cards
+const todoList = document.querySelector('.todo-list');
+todoList.addEventListener('click', (event) => {
+  const btnDellAll = event.target.closest('.control-panel__btn-dell');
+  if(btnDellAll) {
+    const cards = todoList.querySelectorAll('.card');
+    cards.forEach((card) => card.remove());
+    return
+  }
 
+  //Add a card
+  const btnAdd = event.target.closest('.control-panel__btn-ad');
+  if(btnAdd) {
+    const card = btnAdd.closest('.card');
+    if(card) {
+      card.prepend();
+    }
+  }
+
+  //Delete card
+  const cardButtonDell = event.target.closest('.card__btn-dell');
+  if(cardButtonDell) {
+    const card = cardButtonDell.closest('.card');
+    if(card) {
+      card.remove();
+    }
+  }
+})
  
- 
+
+
+
