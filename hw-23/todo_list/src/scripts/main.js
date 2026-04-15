@@ -14,6 +14,33 @@ function createElement(tagName, className = '', text = '', id = '') {
   return element;
 }
 
+//Card creation function 
+function createTodoCard(todoText = 'Todo text') {
+  const card = createElement('div', 'card');
+
+  const cardCheckbox = createElement('input', 'card__checkbox');
+  cardCheckbox.type = 'checkbox';
+  card.appendChild(cardCheckbox);
+
+  const cardInput = createElement('p', 'card__input', todoText);
+  card.appendChild(cardInput);
+
+  const cardButtonDell = createElement('button', 'card__btn-dell', 'Delete');
+  card.appendChild(cardButtonDell);
+
+  const now = new Date();
+  const cardTime = createElement('time', 'card__time');
+  cardTime.dateTime = now.toISOString(); 
+  cardTime.textContent = now.toLocaleString('ru-RU', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+  card.appendChild(cardTime);
+
+  return card;
+}
+
 //Get root element from DOM.
 const root = document.getElementById('root');
 
@@ -37,29 +64,30 @@ if (root) {
   controlPanel.appendChild(btnAdd);
 
 
-  //Card.
-  const card = createElement('div', 'card');
-  todoList.appendChild(card);
-
-  const cardCheckbox = createElement('input', 'card__checkbox');
-  cardCheckbox.type = 'checkbox';
-  card.appendChild(cardCheckbox);
+  // //Card.
   
-  const cardInput = createElement('p', 'card__input', 'Todo text');
-  card.appendChild(cardInput);
+  // const card = createElement('div', 'card');
+  // todoList.appendChild(card);
 
-  const cardButtonDell = createElement('button', 'card__btn-dell', 'Delete');
-  card.appendChild(cardButtonDell);
+  // const cardCheckbox = createElement('input', 'card__checkbox');
+  // cardCheckbox.type = 'checkbox';
+  // card.appendChild(cardCheckbox);
+  
+  // const cardInput = createElement('p', 'card__input', 'Todo text');
+  // card.appendChild(cardInput);
 
-  const now = new Date();
-  const cardTime = createElement('time', 'card__time');
-  cardTime.dateTime = now.toISOString(); 
-  cardTime.textContent = now.toLocaleString('ru-RU', {
-  day: '2-digit',
-  month: '2-digit',
-  year: 'numeric'
-  });
-  card.appendChild(cardTime);
+  // const cardButtonDell = createElement('button', 'card__btn-dell', 'Delete');
+  // card.appendChild(cardButtonDell);
+
+  // const now = new Date();
+  // const cardTime = createElement('time', 'card__time');
+  // cardTime.dateTime = now.toISOString(); 
+  // cardTime.textContent = now.toLocaleString('ru-RU', {
+  // day: '2-digit',
+  // month: '2-digit',
+  // year: 'numeric'
+  // });
+  // card.appendChild(cardTime);
 }
 
 //Event handler todo-list
