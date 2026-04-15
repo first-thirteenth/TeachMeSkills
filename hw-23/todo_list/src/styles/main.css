@@ -67,11 +67,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 5px 0;
+    gap: 10px;
+    padding: 5px 10px;
     min-height: 120px;
     width: 75%;
     border: 1px solid white;
     border-radius: 10px;
+}
+
+.card--completed {
+    opacity: 0.7;
+}
+
+.card--completed .card__input {
+    text-decoration: line-through;
+    color: rgb(76, 76, 76);
 }
 
 .card__checkbox,
@@ -86,6 +96,7 @@ body {
 .card__checkbox {
     width: 23px;
     height: 23px;
+    flex-shrink: 0;
     cursor: pointer;
     accent-color: rgb(255, 255, 255);
 }
@@ -94,8 +105,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 35px;
+    flex: 1;
+    min-width: 0;
+    min-height: 35px;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
  
 .card__btn-dell {
