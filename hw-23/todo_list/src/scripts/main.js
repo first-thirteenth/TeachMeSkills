@@ -92,6 +92,12 @@ if (todoList && inputTodoText) {
     inputTodoText.focus();
   }
 
+  inputTodoText.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      addTodoCard();
+    }
+  });
+
   todoList.addEventListener("change", (event) => {
     const cardCheckbox = event.target.closest(".card__checkbox");
 
@@ -104,7 +110,7 @@ if (todoList && inputTodoText) {
     }
   });
 
-   //Remove all cards
+  //Remove all cards
   todoList.addEventListener("click", (event) => {
     const btnDellAll = event.target.closest(".control-panel__btn-dell");
     if (btnDellAll) {
@@ -119,12 +125,6 @@ if (todoList && inputTodoText) {
       addTodoCard();
       return;
     }
-
-    inputTodoText.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      addTodoCard();
-    }
-    });
 
     //Delete card
     const cardButtonDell = event.target.closest(".card__btn-dell");
