@@ -86,17 +86,28 @@
 
 // console.log(getFullName(person));
 
-//8
-function getEvens(arr) {
-  const result = [];
+// //8
+// function getEvens(arr) {
+//   const result = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] % 2 === 0) {
+//       result.push(arr[i]);
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(getEvens([1, 2, 3, 4]));
+
+//9
+function sumArr(arr) {
+  let sum = 0;
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] % 2 === 0) {
-      result.push(arr[i]);
-    }
+    sum += arr[i];
   }
-  return result;
+  return sum;
 }
 
-console.log(getEvens([1, 2, 3, 4]));
+console.log(sumArr([1, 2, 3, 5]));
 
 //Мне нужна функция. Она принимает массив. Я прохожу по каждому элементу. Складываю всё в переменную. Возвращаю результат.
