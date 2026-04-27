@@ -9,7 +9,7 @@
 
 // console.log(isEven(4));
 
-// //2
+//2
 // function getMax(a, b) {
 //     if (a > b) {
 //         return a;
@@ -108,6 +108,6 @@ function sumArr(arr) {
   return sum;
 }
 
-console.log(sumArr([1, 2, 3, 5]));
+console.log(sumArr([5, 4, 5, 9]));
 
 //Мне нужна функция. Она принимает массив. Я прохожу по каждому элементу. Складываю всё в переменную. Возвращаю результат.
