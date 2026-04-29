@@ -99,15 +99,58 @@
 
 // console.log(getEvens([1, 2, 3, 4]));
 
-//9
-function sumArr(arr) {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
+// //9
+// function sumArr(arr) {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     sum += arr[i];
+//   }
+//   return sum;
+// }
+
+// console.log(sumArr([5, 4, 5, 13]));
+
+// //10
+// function getMin(arr) {
+//   let min = arr[0];
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i] < min) {
+//       min = arr[i];
+//     }
+//   }
+//   return min;
+// }
+
+// console.log(getMin([5, 5, 3, 5, 5]));
+
+// //11
+// function reverseString(str) {
+//   return str.split('').reverse().join('');
+// }
+
+// console.log(reverseString('Анастасия'));
+
+// //12
+// function countVowels(str) {
+//   let count = 0;
+//   let vowels = 'aeiou';
+//   for (let symbol of str.toLowerCase()) {
+//     if (vowels.includes(symbol)) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(countVowels('Hello'));
+ 
+//13
+function isPalindrome(str) {
+  for (let palindrome of str) {
+    
   }
-  return sum;
 }
 
-console.log(sumArr([5, 4, 5, 9]));
+
 
 //Мне нужна функция. Она принимает массив. Я прохожу по каждому элементу. Складываю всё в переменную. Возвращаю результат.
