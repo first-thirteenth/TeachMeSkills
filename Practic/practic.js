@@ -146,9 +146,7 @@
  
 //13
 function isPalindrome(str) {
-  for (let palindrome of str) {
-    
-  }
+  
 }
 
 
