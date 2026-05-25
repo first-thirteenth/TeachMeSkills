@@ -15,7 +15,7 @@ function createElement(tagName, className = "", text = "", id = "") {
 }
 
 //Card creation function
-function createTodoCard(todoText = "Todo text") {
+function createTodoCard(todoText = "Todo text", isoDate = null) {
   const card = createElement("div", "card");
 
   const cardCheckbox = createElement("input", "card__checkbox");
@@ -28,10 +28,10 @@ function createTodoCard(todoText = "Todo text") {
   const cardButtonDell = createElement("button", "card__btn-dell", "Delete");
   card.appendChild(cardButtonDell);
 
-  const now = new Date();
+  const date = isoDate ? new Date(isoDate) : new Date();
   const cardTime = createElement("time", "card__time");
-  cardTime.dateTime = now.toISOString();
-  cardTime.textContent = now.toLocaleString("ru-RU", {
+  cardTime.dateTime = date.toISOString();
+  cardTime.textContent = date.toLocaleString("ru-RU", {
     day: "2-digit",
     month: "2-digit",
     year: "numeric",
@@ -73,6 +73,38 @@ if (root) {
   controlPanel.appendChild(btnAdd);
 }
 
+//Save todos to localStorage
+function saveTodos() {
+  const cards = todoList.querySelectorAll(".card");
+  const todos = [];
+
+  cards.forEach((card) => {
+    todos.push({
+      text: card.querySelector(".card__input").textContent,
+      completed: card.classList.contains("card--completed"),
+      date: card.querySelector(".card__time").dateTime,
+    });
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+//Load todos from localStorage
+function loadTodos() {
+  const saved = localStorage.getItem("todos");
+  if (!saved) return;
+
+  const todos = JSON.parse(saved);
+  todos.forEach((todo) => {
+    const card = createTodoCard(todo.text, todo.date);
+    if (todo.completed) {
+      card.classList.add("card--completed");
+      card.querySelector(".card__checkbox").checked = true;
+    }
+    todoList.appendChild(card);
+  });
+}
+
 //Event handler todo-list
 const todoList = document.querySelector(".todo-list");
 const inputTodoText = document.querySelector(".control-panel__input");
@@ -90,6 +122,7 @@ if (todoList && inputTodoText) {
     todoList.appendChild(card);
     inputTodoText.value = "";
     inputTodoText.focus();
+    saveTodos();
   }
 
   inputTodoText.addEventListener("keydown", (event) => {
@@ -106,6 +139,7 @@ if (todoList && inputTodoText) {
 
       if (card) {
         card.classList.toggle("card--completed", cardCheckbox.checked);
+        saveTodos();
       }
     }
   });
@@ -116,6 +150,7 @@ if (todoList && inputTodoText) {
     if (btnDellAll) {
       const cards = todoList.querySelectorAll(".card");
       cards.forEach((card) => card.remove());
+      saveTodos();
       return;
     }
 
@@ -132,7 +167,10 @@ if (todoList && inputTodoText) {
       const card = cardButtonDell.closest(".card");
       if (card) {
         card.remove();
+        saveTodos();
       }
     }
   });
+
+  loadTodos();
 }

@@ -133,7 +133,7 @@
 // //12
 // function countVowels(str) {
 //   let count = 0;
-//   let vowels = 'aeiou';
+//   let vowels = 'aeiouy';
 //   for (let symbol of str.toLowerCase()) {
 //     if (vowels.includes(symbol)) {
 //       count++;
@@ -143,12 +143,23 @@
 // }
 
 // console.log(countVowels('Hello'));
- 
-//13
-function isPalindrome(str) {
-  
-}
 
+// //13
+// function isPalindrome(str) {
+//     return str.split('').reverse().join('') === str
+// }
 
+// console.log(isPalindrome('level'));
 
-//Мне нужна функция. Она принимает массив. Я прохожу по каждому элементу. Складываю всё в переменную. Возвращаю результат.
+//14
+// Напиши функцию countOccurrences(arr), которая принимает массив
+// и возвращает объект, где:
+//   - ключи — элементы массива
+//   - значения — сколько раз каждый элемент встречается
+//
+// Пример:
+// countOccurrences(['a', 'b', 'a', 'c', 'b', 'a'])
+// → { a: 3, b: 2, c: 1 }
+//
+// countOccurrences([1, 2, 1, 3, 2, 1])
+// → { 1: 3, 2: 2, 3: 1 }
